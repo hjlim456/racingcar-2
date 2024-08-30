@@ -46,4 +46,12 @@ public class InputView {
             throw new IllegalArgumentException(ErrorMessage.INPUT_NOT_VALIDATE_NUMBER.getMessage());
         }
     }
+
+    private static void validateNameLength(String name) {
+        if (name.length() > 5) {
+            throw new IllegalArgumentException(ErrorMessage.INPUT_INVALIDATE_NAME_LENGTH.getMessage());
+        }
+    }
+
+
 }
