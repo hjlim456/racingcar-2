@@ -20,7 +20,10 @@ public class InputView {
         String inputInteger = Console.readLine().trim();
         validateBlank(inputInteger);
         validateInteger(inputInteger);
-        return Integer.parseInt(inputInteger);
+
+        int count = Integer.parseInt(inputInteger);
+        validateCount(count);
+        return count;
     }
 
 
@@ -35,6 +38,12 @@ public class InputView {
             Integer.parseInt(input);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException(ErrorMessage.INPUT_NOT_INTEGER.getMessage());
+        }
+    }
+
+    private static void validateCount(int count) {
+        if (count <= 0) {
+            throw new IllegalArgumentException(ErrorMessage.INPUT_NOT_VALIDATE_NUMBER.getMessage());
         }
     }
 }
