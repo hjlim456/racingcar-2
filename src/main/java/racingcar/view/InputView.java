@@ -47,7 +47,7 @@ public class InputView {
         }
     }
 
-    private static void validateNameLength(String name) {
+    public static void validateNameLength(String name) {
         if (name.length() > 5) {
             throw new IllegalArgumentException(ErrorMessage.INPUT_INVALIDATE_NAME_LENGTH.getMessage());
         }
