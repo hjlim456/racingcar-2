@@ -49,6 +49,10 @@ public class MainController {
     }
 
     public List<String> splitByDelimiter(String strings, String delimiter) {
+        if (!strings.contains(delimiter)) {
+            throw new IllegalArgumentException(ErrorMessage.INPUT_WRONG_DELIMITER.getMessage());
+        }
+
         String[] splittedString = strings.split(delimiter);
         List<String> splittedStringList = Arrays.stream(splittedString)
                 .map(String::trim)
