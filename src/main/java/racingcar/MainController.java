@@ -10,10 +10,12 @@ import racingcar.view.InputView;
 
 public class MainController {
     public void run() {
-        String nameStrings = InputView.readCarNames(ViewMessage.INPUT_CAR_NAME.getMessage());
-        List<String> carNames = splitByDelimiter(nameStrings, ",");
-        carNames.forEach(name -> InputView.validateNameLength(name));
-        validateDuplicates(carNames);
+        String nameStrings = InputView.readCarNames(ViewMessage.INPUT_CAR_NAME.getMessage());//이름 입력받기
+        List<String> carNames = splitByDelimiter(nameStrings, ",");//이름 구분자로 분리
+        carNames.forEach(name -> InputView.validateNameLength(name));// 길이 검증
+        validateDuplicates(carNames);// 중복 검증
+
+        int tryCount = InputView.readTryCount(ViewMessage.INPUT_TRIAL_COUNT.getMessage());//시도횟수 입력받기
 
     }
 
