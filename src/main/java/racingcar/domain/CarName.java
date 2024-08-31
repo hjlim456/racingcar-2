@@ -4,6 +4,8 @@ import racingcar.message.ErrorMessage;
 
 public class CarName {
 
+    private static final int MAX_NAME_LENGTH = 5;
+
     private final String name;
 
     public CarName(String name) {
@@ -12,7 +14,7 @@ public class CarName {
     }
 
     public static void validateNameLength(String name) {
-        if (name.length() > 5) {
+        if (name.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException(ErrorMessage.EXCESSED_NAME_LENGTH.getMessage());
         }
     }

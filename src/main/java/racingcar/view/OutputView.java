@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.message.ViewMessage;
 
 public class OutputView {
 
@@ -19,8 +20,8 @@ public class OutputView {
     public static void printWinnerResult(List<Car> winnerList) {
         String winnerString = winnerList.stream()
                 .map(Car::getName)
-                .collect(Collectors.joining(", "));
-        System.out.printf("최종 우승자는 : %s", winnerString);
+                .collect(Collectors.joining(ViewMessage.WINNER_RESULT_DELIMITER.getMessage()));
+        System.out.printf(ViewMessage.WINNER_RESULT_FOMAT.getMessage(), winnerString);
     }
 
 
