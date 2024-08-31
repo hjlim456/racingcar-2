@@ -22,13 +22,12 @@ public class InputView {
         validateInteger(inputInteger);
 
         int count = Integer.parseInt(inputInteger);
-        validateCount(count);
+
         return count;
     }
 
-
     private static void validateBlank(String input) {
-        if (input.isBlank()) {
+        if (input.isBlank() || input == null) {
             throw new IllegalArgumentException(ErrorMessage.INPUT_BLANK_WARNING.getMessage());
         }
     }
@@ -40,18 +39,5 @@ public class InputView {
             throw new IllegalArgumentException(ErrorMessage.INPUT_NOT_INTEGER.getMessage());
         }
     }
-
-    private static void validateCount(int count) {
-        if (count <= 0) {
-            throw new IllegalArgumentException(ErrorMessage.INPUT_NOT_VALIDATE_NUMBER.getMessage());
-        }
-    }
-
-    public static void validateNameLength(String name) {
-        if (name.length() > 5) {
-            throw new IllegalArgumentException(ErrorMessage.INPUT_INVALIDATE_NAME_LENGTH.getMessage());
-        }
-    }
-
 
 }

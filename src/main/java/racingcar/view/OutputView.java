@@ -1,7 +1,9 @@
 package racingcar.view;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import racingcar.domain.Car;
+import racingcar.domain.Cars;
 
 public class OutputView {
 
@@ -9,9 +11,16 @@ public class OutputView {
         System.out.println(message);
     }
 
-    public static void printMovingResult(List<Car> cars) {
-        cars.forEach(car -> System.out.println(car.printPosition()));
+    public static void printMovingResult(Cars cars) {
+        cars.getPosition();
         System.out.println();
+    }
+
+    public static void printWinnerResult(List<Car> winnerList) {
+        String winnerString = winnerList.stream()
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
+        System.out.printf("최종 우승자는 : %s", winnerString);
     }
 
 
